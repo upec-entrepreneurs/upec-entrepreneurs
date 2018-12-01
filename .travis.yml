@@ -25,3 +25,10 @@ script:
 
 after_success:
   - npm run codecov
+
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true
+  verbose: true
+  on:
+    branch: master
