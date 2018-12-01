@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { EventsComponent } from './components/events/events.component';
+import { AnnouncementsComponent } from './components/announcements/announcements.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
       { path: 'past', component: EventsComponent }
     ]
   },
+  { path: 'announcements', component: AnnouncementsComponent },
   { path: '', redirectTo: '/events', pathMatch: 'full' }
 ];
 

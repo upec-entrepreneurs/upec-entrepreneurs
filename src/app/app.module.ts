@@ -16,11 +16,13 @@ import {
 
 import { AppComponent } from './app.component';
 import { EventsComponent } from './components/events/events.component';
+import { AnnouncementsComponent } from './components/announcements/announcements.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EventsComponent
+    EventsComponent,
+    AnnouncementsComponent
   ],
   imports: [
     BrowserModule,
