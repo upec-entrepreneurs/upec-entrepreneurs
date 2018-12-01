@@ -1,3 +1,5 @@
+@import '../styles';
+
 .sidenav-container {
   height: 100%;
 
@@ -24,9 +26,22 @@
       margin-left: 10px;
     }
 
+    .active-link {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: mat-color($candy-app-primary, default);
+
+      .mat-list-icon {
+        color: inherit;
+      }
+    }
+
     .mat-list-icon {
       color: rgba(0, 0, 0, 0.54);
     }
   }
 
+  .mat-elevation-z6 {
+    position: relative;
+    z-index: 2;
+  }
 }

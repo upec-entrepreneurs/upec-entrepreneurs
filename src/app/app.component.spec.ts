@@ -47,7 +47,7 @@ describe('AppComponent', () => {
     expect(fixture.debugElement.query(By.css('.sidenav-content mat-toolbar span')).nativeElement.innerHTML).toContain('UPEC Entrepreneurs');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render UPEC logo image', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const imgElement = fixture.debugElement.query(By.css('.sidenav-image')).nativeElement.src;

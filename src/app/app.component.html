@@ -8,11 +8,11 @@
     </mat-toolbar>
     <mat-nav-list>
       <h3 matSubheader>Évènements</h3>
-      <a mat-list-item href="#">
+      <a mat-list-item routerLink="/events/upcoming" routerLinkActive="active-link">
         <mat-icon mat-list-icon>event_available</mat-icon>
         <span mat-line>À venir</span>
       </a>
-      <a mat-list-item href="#">
+      <a mat-list-item routerLink="/events/past" routerLinkActive="active-link">
         <mat-icon mat-list-icon>event_busy</mat-icon>
         <span mat-line>Passés</span>
       </a>
@@ -25,7 +25,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content">
-    <mat-toolbar color="primary">
+    <mat-toolbar class="mat-elevation-z6" color="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
