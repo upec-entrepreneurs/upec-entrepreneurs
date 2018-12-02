@@ -9,11 +9,12 @@ const routes: Routes = [
     path: 'events', component: EventsComponent,
     children: [
       { path: 'upcoming', component: EventsComponent },
-      { path: 'past', component: EventsComponent }
+      { path: 'past', component: EventsComponent },
+      { path: '', redirectTo: 'upcoming', pathMatch: 'full' }
     ]
   },
   { path: 'announcements', component: AnnouncementsComponent },
-  { path: '', redirectTo: '/events', pathMatch: 'full' }
+  { path: '', redirectTo: '/events/upcoming', pathMatch: 'full' }
 ];
 
 @NgModule({
