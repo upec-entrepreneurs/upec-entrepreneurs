@@ -22,6 +22,7 @@ const MOCK_EVENT = {
   dateStart: new Date('2019-01-01T00:00:00.000Z'),
   dateEnd: new Date('2019-01-01T01:00:00.000Z'),
   headerImageUrl: 'https://www.google.fr/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+  ticketsUrl: 'https://www.google.fr/',
   organiser: {
     name: 'Organiser',
     subtitle: 'Intro',
