@@ -3,10 +3,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatBadgeModule,
   MatButtonModule,
+  MatCardModule,
   MatExpansionModule,
   MatIconModule,
   MatListModule,
@@ -28,9 +30,11 @@ import { AnnouncementsComponent } from './components/announcements/announcements
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FlexLayoutModule,
     LayoutModule,
     MatBadgeModule,
     MatButtonModule,
+    MatCardModule,
     MatExpansionModule,
     MatIconModule,
     MatListModule,
