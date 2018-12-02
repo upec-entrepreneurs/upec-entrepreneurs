@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router, NavigationEnd } from '@angular/router';
 import { Event } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
-
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-events',
@@ -17,7 +19,16 @@ export class EventsComponent implements OnInit {
 
   rows: number[];
 
-  constructor( private _router: Router, private _service: EventService ) {
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private _router: Router,
+    private _service: EventService
+  ) {
     this._router.events.subscribe(event => {
         if (event instanceof NavigationEnd) {
           this.title = this.getTitle(this._router.url);

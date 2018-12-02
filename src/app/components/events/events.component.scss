@@ -8,15 +8,7 @@
   padding: 30px;
   margin: 20px;
 
-  .event-card {
-    max-width: 400px;
-
-    .event-header-image {
-      background-size: cover;
-    }
-
-    .event-info-icon {
-      color: rgba(0, 0, 0, 0.54);
-    }
+  .event-row {
+    margin-bottom: 30px;
   }
 }

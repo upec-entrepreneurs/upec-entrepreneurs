@@ -1,0 +1,30 @@
+<mat-card class="event-card">
+  <img mat-card-image [src]="event.headerImageUrl" [alt]="event.title">
+  <mat-card-content>
+    <h1>{{event.title}}</h1>
+    <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon class="event-info-icon">calendar_today</mat-icon>
+      <span>{{event.dateStart | date: 'EEEE d MMMM y': 'undefined': 'fr-FR'}}
+        de {{event.dateStart | date: 'H:mm': 'undefined': 'fr-FR'}}
+        à {{event.dateEnd | date: 'H:mm': 'undefined': 'fr-FR'}}
+      </span>
+    </p>
+    <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon class="event-info-icon">place</mat-icon>
+      <span class="event-location">{{event.location}}</span>
+    </p>
+  </mat-card-content>
+  <mat-card-header>
+    <div
+      mat-card-avatar
+      class="event-header-image"
+      [ngStyle]="{
+        'background-image': 'url(' + event.organiser.imageUrl + ')'
+      }"></div>
+    <mat-card-title>{{event.organiser.name}}</mat-card-title>
+    <mat-card-subtitle>{{event.organiser.subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions fxLayout="row" fxLayoutAlign="end">
+    <button mat-raised-button color="primary">PARTICIPER</button>
+  </mat-card-actions>
+</mat-card>
