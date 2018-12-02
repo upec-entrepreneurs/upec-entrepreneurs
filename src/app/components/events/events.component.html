@@ -2,19 +2,19 @@
   {{title}}
 </mat-toolbar>
 
-<div class="events-container" fxLayout="column" fxLayoutAlign="space-around">
-  <div fxLayout="row" fxLayoutAlign="space-around">
-    <mat-card class="event-card">
-      <img mat-card-image src="https://cdn.evbuc.com/images/48635904/68109934353/1/logo.jpg" alt="Photo of a Shiba Inu">
+<div class="events-container" fxLayout="column" fxLayoutAlign="space-around" fxLayoutGap="30px">
+  <div fxLayout="row" fxLayoutAlign="space-around" *ngFor="let i of rows">
+    <mat-card class="event-card" *ngFor="let event of events | slice:(i*2):(i+1)*2">
+      <img mat-card-image [src]="event.headerImageUrl" [alt]="event.name">
       <mat-card-content>
         <h1>Maddy Keynote 2019</h1>
         <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
           <mat-icon class="event-info-icon">calendar_today</mat-icon>
-          <span>Jeudi 31 janvier 2019 de 09:00 à 19:00</span>
+          <span>{{event.dateStart | date: 'fullDate'}}</span>
         </p>
         <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
           <mat-icon class="event-info-icon">place</mat-icon>
-          <span class="text-info">CENTQUATRE, 5 Rue Curial, 75019 Paris</span>
+          <span class="text-info">{{event.location}}</span>
         </p>
       </mat-card-content>
       <mat-card-header>
@@ -22,10 +22,10 @@
           mat-card-avatar
           class="event-header-image"
           [ngStyle]="{
-            'background-image': 'url(https://img.ulule.com/display/fceba05adc5aa7a5e62cf4f7f5bc2866e0ec4980/thumbnail/160x160/avatars/2016/04/26/maddyness.195334.195343.png)'
+            'background-image': 'url(' + event.organiser.imageUrl + ')'
           }"></div>
-        <mat-card-title>Maddyness</mat-card-title>
-        <mat-card-subtitle>Le Magazine des Startups Françaises</mat-card-subtitle>
+        <mat-card-title>{{event.organiser.name}}</mat-card-title>
+        <mat-card-subtitle>{{event.organiser.subtitle}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions fxLayout="row" fxLayoutAlign="end">
         <button mat-raised-button color="primary">PARTICIPER</button>
