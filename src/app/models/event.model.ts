@@ -6,5 +6,6 @@ export class Event {
   dateStart: Date;
   dateEnd: Date;
   headerImageUrl: string;
+  ticketsUrl: string;
   organiser: Organiser;
 }

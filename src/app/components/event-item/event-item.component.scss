@@ -1,11 +1,19 @@
 .event-card {
   max-width: 400px;
 
+  img {
+    max-height: 210px;
+  }
+
   .event-header-image {
     background-size: cover;
   }
 
   .event-info-icon {
     color: rgba(0, 0, 0, 0.54);
+  }
+
+  .event-card-filler {
+    flex: 1;
   }
 }
