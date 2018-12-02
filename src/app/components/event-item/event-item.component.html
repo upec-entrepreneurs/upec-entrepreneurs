@@ -1,0 +1,38 @@
+<mat-card class="event-card" fxLayout="column">
+  <img mat-card-image [src]="event.headerImageUrl" [alt]="event.title">
+  <mat-card-content>
+    <h1>{{event.title}}</h1>
+    <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon class="event-info-icon">calendar_today</mat-icon>
+      <span>{{event.dateStart | date: 'EEEE d MMMM y': 'undefined': 'fr-FR'}}
+        de {{event.dateStart | date: 'H:mm': 'undefined': 'fr-FR'}}
+        à {{event.dateEnd | date: 'H:mm': 'undefined': 'fr-FR'}}
+      </span>
+    </p>
+    <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-icon class="event-info-icon">place</mat-icon>
+      <span class="event-location">{{event.location}}</span>
+    </p>
+  </mat-card-content>
+  <mat-card-header>
+    <div
+      mat-card-avatar
+      class="event-header-image"
+      [ngStyle]="{
+        'background-image': 'url(' + event.organiser.imageUrl + ')'
+      }"></div>
+    <mat-card-title>{{event.organiser.name}}</mat-card-title>
+    <mat-card-subtitle>{{event.organiser.subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <div class="event-card-filler"></div>
+  <mat-card-actions fxLayout="row" fxLayoutAlign="end end">
+    <a
+      mat-raised-button
+      color="primary"
+      target="_blank"
+      rel="noopener noreferrer"
+      [href]="event.ticketsUrl">
+      PARTICIPER
+    </a>
+  </mat-card-actions>
+</mat-card>

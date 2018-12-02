@@ -2,3 +2,15 @@
   {{title}}
 </mat-toolbar>
 
+<div class="events-container" fxLayout="column" fxLayoutAlign="space-around" fxLayoutGap="30px">
+  <div *ngIf="!(isHandset$ | async); else oneColumn">
+    <div class="event-row" fxLayout="row" fxLayoutAlign="space-around" *ngFor="let i of rows">
+      <app-event-item [event]="event" fxLayoutAlign="strech" *ngFor="let event of events | slice:(i*2):(i+1)*2"></app-event-item>
+    </div>
+  </div>
+  <ng-template #oneColumn>
+    <div fxLayout="row" fxLayoutAlign="space-around" *ngFor="let event of events">
+      <app-event-item [event]="event"></app-event-item>
+    </div>
+  </ng-template>
+</div>
