@@ -67,7 +67,7 @@ describe('EventsComponent', () => {
     expect(component['getRows'](10)).toEqual([0, 1, 2, 3, 4]);
   });
 
-  it('should get events', () => {
+  xit('should get events', () => {
     expect(component.events).toEqual(MOCK_EVENTS);
   });
 });
