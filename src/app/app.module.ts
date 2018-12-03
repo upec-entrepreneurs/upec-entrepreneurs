@@ -19,6 +19,7 @@ import {
   MatExpansionModule,
   MatIconModule,
   MatListModule,
+  MatProgressBarModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -48,6 +49,7 @@ import { EventItemComponent } from './components/event-item/event-item.component
     MatExpansionModule,
     MatIconModule,
     MatListModule,
+    MatProgressBarModule,
     MatSidenavModule,
     MatToolbarModule
   ],

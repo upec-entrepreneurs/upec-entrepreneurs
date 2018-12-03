@@ -1,6 +1,7 @@
 <mat-toolbar color="primary">
   {{title}}
 </mat-toolbar>
+<mat-progress-bar mode="query" *ngIf="showProgress"></mat-progress-bar>
 
 <div class="events-container" fxLayout="column" fxLayoutAlign="space-around" fxLayoutGap="30px">
   <div *ngIf="!(isHandset$ | async); else oneColumn">
