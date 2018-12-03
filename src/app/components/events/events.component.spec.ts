@@ -73,7 +73,10 @@ describe('EventsComponent', () => {
 });
 
 class MockEventService {
-  getEvents() {
+  getUpcomingEvents() {
+    return of(MOCK_EVENTS);
+  }
+  getPastEvents() {
     return of(MOCK_EVENTS);
   }
 }
