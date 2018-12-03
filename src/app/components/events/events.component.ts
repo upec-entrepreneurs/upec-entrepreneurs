@@ -19,6 +19,8 @@ export class EventsComponent implements OnInit {
 
   rows: number[];
 
+  showProgress = true;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
@@ -32,6 +34,7 @@ export class EventsComponent implements OnInit {
     this._router.events.subscribe(event => {
         if (event instanceof NavigationStart) {
           this.events = null;
+          this.showProgress = true;
         }
         if (event instanceof NavigationEnd) {
           this.title = this.getTitle(this._router.url);
@@ -59,11 +62,13 @@ export class EventsComponent implements OnInit {
       this._service.getUpcomingEvents().subscribe((data: Event[]) => {
         this.events = data;
         this.rows = this.getRows(this.events.length);
+        this.showProgress = false;
       });
     } else if (url === '/events/past') {
       this._service.getPastEvents().subscribe((data: Event[]) => {
         this.events = data;
         this.rows = this.getRows(this.events.length);
+        this.showProgress = false;
       });
     }
   }
