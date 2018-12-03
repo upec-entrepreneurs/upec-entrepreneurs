@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Event } from '../../models/event.model';
 import { EventService } from '../../services/event.service';
 import { Observable } from 'rxjs';
@@ -30,18 +30,17 @@ export class EventsComponent implements OnInit {
     private _service: EventService
   ) {
     this._router.events.subscribe(event => {
+        if (event instanceof NavigationStart) {
+          this.events = null;
+        }
         if (event instanceof NavigationEnd) {
           this.title = this.getTitle(this._router.url);
+          this.getEvents(this._router.url);
         }
     });
   }
 
-  ngOnInit() {
-    this._service.getEvents().subscribe((data: Event[]) => {
-      this.events = data;
-      this.rows = this.getRows(this.events.length);
-    });
-  }
+  ngOnInit() { }
 
   private getTitle(url: string): string {
     let title = 'Évènements ';
@@ -52,6 +51,20 @@ export class EventsComponent implements OnInit {
         return title += 'passés';
       default:
         return title;
+    }
+  }
+
+  private getEvents(url: string): void {
+    if (url === '/events/upcoming') {
+      this._service.getUpcomingEvents().subscribe((data: Event[]) => {
+        this.events = data;
+        this.rows = this.getRows(this.events.length);
+      });
+    } else if (url === '/events/past') {
+      this._service.getPastEvents().subscribe((data: Event[]) => {
+        this.events = data;
+        this.rows = this.getRows(this.events.length);
+      });
     }
   }
 
