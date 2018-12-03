@@ -25,6 +25,8 @@ script:
 
 after_success:
   - npm run codecov
+  - rm -rf node_modules/
+  - rm -rf coverage/
 
 deploy:
   provider: azure_web_apps
