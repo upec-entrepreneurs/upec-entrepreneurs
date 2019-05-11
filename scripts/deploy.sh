@@ -9,6 +9,8 @@ then
         git config --global user.name "esuau"
         git remote set-url origin https://${GH_TOKEN}@github.com/upec-entrepreneurs/upec-entrepreneurs
 
+        git stash --all
+
         npm version patch -m "Release version %s"
 
         git push origin master --tags
@@ -20,6 +22,6 @@ then
 
     docker tag upec-entrepreneurs $DOCKER_USERNAME/upec-entrepreneurs:$VERSION
     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    docker push $DOCKER_USERNAME/upecentrepreneurs:$VERSION
+    docker push $DOCKER_USERNAME/upec-entrepreneurs:$VERSION
 
 fi
