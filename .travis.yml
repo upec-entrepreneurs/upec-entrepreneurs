@@ -1,9 +1,9 @@
-dist: trusty
-sudo: false
-
 language: node_js
-node_js:
+node_js:	
   - "8"
+
+services:
+  - docker
 
 addons:
   apt:
@@ -12,25 +12,17 @@ addons:
     packages:
       - google-chrome-stable
 
-cache:
-  directories:
-     - ./node_modules
-
-install:
-  - npm install
-
 script:
   - npm run test -- --code-coverage --no-progress --browsers=ChromeHeadlessCI
-  - npm run build -- --prod
 
 after_success:
   - npm run codecov
-  - rm -rf node_modules/
-  - rm -rf coverage/
+
+before_deploy:
+  - docker build -t upec-entrepreneurs .
 
 deploy:
-  provider: azure_web_apps
-  skip_cleanup: true
-  verbose: true
+  provider: script
+  script: bash scripts/deploy.sh
   on:
-    branch: master
+    all_branches: true
